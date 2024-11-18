@@ -1008,6 +1008,8 @@ export type Config = {
    */
   loggingLevels?: Partial<Record<ErrorName, false | Level>>
 
+  maxCallDepth?: number
+
   /**
    * The maximum allowed depth to be permitted application-wide. This setting helps prevent against malicious queries.
    *

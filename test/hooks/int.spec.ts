@@ -329,10 +329,26 @@ describe('Hooks', () => {
       expect(retrievedDoc.value).toEqual('data from rest API')
     })
 
-    it('should throw ReachedMaxCallDepth with hook that causes an infinity loop', async () => {
+    it('should throw ReachedMaxCallDepth if reached call depth more than config.maxCallDepth', async () => {
       await expect(
-        await payload.create({ collection: 'infinity-loop', data: {} }),
+        payload.create({
+          collection: 'infinity-loop',
+          data: {},
+          context: {
+            callDepth: payload.config.maxCallDepth,
+          },
+        }),
       ).rejects.toBeInstanceOf(ReachedMaxCallDepth)
+
+      await expect(
+        payload.create({
+          collection: 'infinity-loop',
+          data: {},
+          context: {
+            callDepth: payload.config.maxCallDepth - 1,
+          },
+        }),
+      ).resolves.toBeTruthy()
     })
   })
 
