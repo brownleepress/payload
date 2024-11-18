@@ -996,6 +996,7 @@ export type Config = {
   `*   ErrorDeletingFile: 'error',
   `*   FileRetrievalError: 'error',
   `*   FileUploadError: 'error',
+  `*   ReachedMaxCallDepth: 'error',
   `*   Forbidden: 'info',
   `*   Locked: 'info',
   `*   LockedAuth: 'error',
