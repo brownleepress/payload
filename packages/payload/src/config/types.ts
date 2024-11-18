@@ -1008,6 +1008,11 @@ export type Config = {
    */
   loggingLevels?: Partial<Record<ErrorName, false | Level>>
 
+  /**
+   * The maximum allowed call depth for Local API operations. This setting helps prevent against hooks that lead to infinity loops.
+   *
+   * @default 30
+   */
   maxCallDepth?: number
 
   /**
