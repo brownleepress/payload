@@ -9,7 +9,7 @@ const callDepthAsl = new AsyncLocalStorage<{ currentDepth: number }>()
 export const enforceCallDepth = <
   T extends (payload: Payload, options: unknown) => Promise<unknown>,
 >(
-  func: T,
+  operation: T,
 ): T => {
   const withEnforcedCallDepth = async (payload: Payload, options: unknown) => {
     const store = callDepthAsl.getStore()
@@ -21,7 +21,7 @@ export const enforceCallDepth = <
         throw new ReachedMaxCallDepth(payload.config.maxCallDepth)
       }
 
-      return func(payload, options)
+      return operation(payload, options)
     })
   }
 

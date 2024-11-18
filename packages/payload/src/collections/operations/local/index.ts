@@ -29,7 +29,9 @@ const local = {
 }
 
 for (const operation in local) {
-  local[operation] = enforceCallDepth(local[operation])
+  if (typeof operation === 'function') {
+    local[operation] = enforceCallDepth(local[operation])
+  }
 }
 
 export default local
