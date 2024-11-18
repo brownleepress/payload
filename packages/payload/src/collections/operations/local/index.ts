@@ -29,7 +29,7 @@ const local = {
 }
 
 for (const operation in local) {
-  if (typeof operation === 'function') {
+  if (typeof local[operation] === 'function') {
     local[operation] = enforceCallDepth(local[operation])
   }
 }
