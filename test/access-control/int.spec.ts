@@ -526,9 +526,17 @@ describe('Access Control', () => {
     })
 
     it('should ignore false access on query constraint added by top collection level access control', async () => {
+      await payload.create({
+        collection: 'fields-and-top-access',
+        data: { secret: '123456' },
+      })
       const { id } = await payload.create({
         collection: 'fields-and-top-access',
         data: { secret: '12345' },
+      })
+      await payload.create({
+        collection: 'fields-and-top-access',
+        data: { secret: '123456' },
       })
 
       const resFind = await payload.find({
@@ -536,6 +544,15 @@ describe('Access Control', () => {
         collection: 'fields-and-top-access',
       })
       expect(resFind.docs[0].id).toBe(id)
+
+      const resFindDraft = await payload.find({
+        draft: true,
+        overrideAccess: false,
+        collection: 'fields-and-top-access',
+      })
+
+      expect(resFind.docs[0].id).toBe(id)
+      expect(resFindDraft.docs[0].id).toBe(id)
 
       const res = await payload.findByID({
         id,

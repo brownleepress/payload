@@ -515,6 +515,7 @@ export default buildConfigWithDefaults({
           },
         }),
       },
+      versions: { drafts: true },
       fields: [
         {
           type: 'text',
