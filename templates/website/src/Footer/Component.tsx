@@ -8,7 +8,7 @@ import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
 
 export async function Footer() {
-  const footer: Footer = await getCachedGlobal('footer')()
+  const footer: Footer = await getCachedGlobal('footer', 1)()
 
   const navItems = footer?.navItems || []
 
@@ -19,8 +19,10 @@ export async function Footer() {
           <picture>
             <img
               alt="Payload Logo"
-              className="max-w-[6rem] invert-0"
-              src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
+              width={193}
+              height={43}
+              className="max-w-[6rem] invert-0 w-full"
+              src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-logo-light.svg"
             />
           </picture>
         </Link>
