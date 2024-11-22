@@ -14,6 +14,28 @@ const cssVariables = {
     base1000: 'rgb(0, 0, 0)',
     error500: 'rgb(255, 111, 118)',
   },
+  /* Import Poppins font from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+  /* Set default styles */
+  :root {
+    --font-family: 'Poppins', sans-serif;
+    --font-size: 18pt;
+    --line-height: 1rem;
+  }
+
+  body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    color: var(--text-color, rgb(0, 0, 0)); /* Default text color */
+  }
+
+  /* For paragraphs or other text elements, you can define additional styles */
+  p {
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+  }
 }
 
 export default cssVariables
