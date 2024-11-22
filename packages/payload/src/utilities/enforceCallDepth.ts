@@ -4,7 +4,7 @@ import type { Payload } from '../types/index.js'
 
 import { ReachedMaxCallDepth } from '../errors/index.js'
 
-const callDepthAsl = new AsyncLocalStorage<{ currentDepth: number }>()
+const callDepthAls = new AsyncLocalStorage<{ currentDepth: number }>()
 
 export const enforceCallDepth = <
   T extends (payload: Payload, options: unknown) => Promise<unknown>,
@@ -12,13 +12,21 @@ export const enforceCallDepth = <
   operation: T,
 ): T => {
   const withEnforcedCallDepth = async (payload: Payload, options: unknown) => {
-    const store = callDepthAsl.getStore()
+    const {
+      config: { maxCallDepth },
+    } = payload
 
-    return callDepthAsl.run({ currentDepth: store?.currentDepth ?? 0 }, async () => {
-      const store = callDepthAsl.getStore()
+    if (maxCallDepth === false) {
+      return operation(payload, options)
+    }
+
+    const store = callDepthAls.getStore()
+
+    return callDepthAls.run({ currentDepth: store?.currentDepth ?? 0 }, async () => {
+      const store = callDepthAls.getStore()
       store.currentDepth++
-      if (store.currentDepth > payload.config.maxCallDepth) {
-        throw new ReachedMaxCallDepth(payload.config.maxCallDepth)
+      if (store.currentDepth > maxCallDepth) {
+        throw new ReachedMaxCallDepth(maxCallDepth)
       }
 
       return operation(payload, options)
