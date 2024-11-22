@@ -7,10 +7,11 @@ import { fieldAffectsData } from 'payload/shared'
 import type { IDType } from '../types.js'
 
 type Args = {
+  autoIncrement: boolean
   columns: Record<string, SQLiteColumnBuilder>
   fields: Field[]
 }
-export const setColumnID = ({ columns, fields }: Args): IDType => {
+export const setColumnID = ({ autoIncrement, columns, fields }: Args): IDType => {
   const idField = flattenTopLevelFields(fields).find(
     (field) => fieldAffectsData(field) && field.name === 'id',
   )
@@ -26,6 +27,6 @@ export const setColumnID = ({ columns, fields }: Args): IDType => {
     }
   }
 
-  columns.id = integer('id').primaryKey()
+  columns.id = integer('id').primaryKey({ autoIncrement })
   return 'integer'
 }
