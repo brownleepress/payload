@@ -416,6 +416,7 @@ export const rsTranslations: DefaultTranslationsObject = {
     previouslyPublished: 'Prethodno objavljeno',
     problemRestoringVersion: 'Настао је проблем при враћању ове верзије',
     publish: 'Објавити',
+    publishAll: 'Objavi sve lokacije',
     publishChanges: 'Објави промене',
     published: 'Објављено',
     publishIn: 'Objavi na {{locale}}',

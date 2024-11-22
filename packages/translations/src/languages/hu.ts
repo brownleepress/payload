@@ -425,6 +425,7 @@ export const huTranslations: DefaultTranslationsObject = {
     previouslyPublished: 'Korábban Közzétéve',
     problemRestoringVersion: 'Hiba történt a verzió visszaállításakor',
     publish: 'Közzététel',
+    publishAll: 'Közzétesz minden helyszínt',
     publishChanges: 'Módosítások közzététele',
     published: 'Közzétett',
     publishIn: 'Közzététel ebben a {{locale}} területkódban',

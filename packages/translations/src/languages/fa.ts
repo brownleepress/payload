@@ -418,6 +418,7 @@ export const faTranslations: DefaultTranslationsObject = {
     previouslyPublished: 'قبلا منتشر شده',
     problemRestoringVersion: 'مشکلی در بازیابی این نگارش وجود دارد',
     publish: 'انتشار',
+    publishAll: 'منتشر کردن همه مکان ها',
     publishChanges: 'انتشار تغییرات',
     published: 'انتشار یافته',
     publishIn: 'منتشر کنید در {{locale}}',

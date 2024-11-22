@@ -420,6 +420,7 @@ export const bgTranslations: DefaultTranslationsObject = {
     previouslyPublished: 'Предишно публикувано',
     problemRestoringVersion: 'Имаше проблем при възстановяването на тази версия',
     publish: 'Публикувай',
+    publishAll: 'Публикувай всички локализации',
     publishChanges: 'Публикувай промените',
     published: 'Публикувано',
     publishIn: 'Публикувайте в {{locale}}',

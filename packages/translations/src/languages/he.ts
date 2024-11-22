@@ -408,6 +408,7 @@ export const heTranslations: DefaultTranslationsObject = {
     previouslyPublished: 'פורסם בעבר',
     problemRestoringVersion: 'הייתה בעיה בשחזור הגרסה הזו',
     publish: 'פרסם',
+    publishAll: 'פרסם את כל המקומות',
     publishChanges: 'פרסם שינויים',
     published: 'פורסם',
     publishIn: 'פרסם ב-{{locale}}',

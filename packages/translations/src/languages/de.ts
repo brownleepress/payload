@@ -425,6 +425,7 @@ export const deTranslations: DefaultTranslationsObject = {
     previouslyPublished: 'Zuvor Veröffentlicht',
     problemRestoringVersion: 'Es gab ein Problem bei der Wiederherstellung dieser Version',
     publish: 'Veröffentlichen',
+    publishAll: 'Veröffentlichen Sie alle Gebietsschemata',
     publishChanges: 'Änderungen veröffentlichen',
     published: 'Veröffentlicht',
     publishIn: 'Veröffentlichen in {{locale}}',

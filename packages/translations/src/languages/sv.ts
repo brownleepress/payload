@@ -420,6 +420,7 @@ export const svTranslations: DefaultTranslationsObject = {
     previouslyPublished: 'Tidigare publicerad',
     problemRestoringVersion: 'Det uppstod ett problem när den här versionen skulle återställas',
     publish: 'Publicera',
+    publishAll: 'Publicera alla språkversioner',
     publishChanges: 'Publicera ändringar',
     published: 'Publicerad',
     publishIn: 'Publicera i {{locale}}',

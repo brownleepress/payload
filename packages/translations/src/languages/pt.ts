@@ -422,6 +422,7 @@ export const ptTranslations: DefaultTranslationsObject = {
     previouslyPublished: 'Publicado Anteriormente',
     problemRestoringVersion: 'Ocorreu um problema ao restaurar essa versão',
     publish: 'Publicar',
+    publishAll: 'Publicar todos os locais',
     publishChanges: 'Publicar alterações',
     published: 'Publicado',
     publishIn: 'Publicar em {{locale}}',
